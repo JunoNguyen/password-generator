@@ -11,17 +11,14 @@ var passwordText = document.querySelector("#password");
 // Write password to the #password input
 function writePassword() {
 
-//   var password = generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
 }
 
 function generatePassword() {
 
-  var numOfChar = prompt("enter the length of password");
-  if (!(numOfChar >= 8 && numOfChar < 128)) {
+  var charNum = prompt("enter the length of password");
+  if (!(charNum >= 8 && charNum < 128)) {
     return;
   }
   
@@ -40,10 +37,17 @@ function generatePassword() {
     
   }
 
-  var passwordLength = numofChar;
+  var passwordLength = charNum;
   var password = "";
 
-  for (var i=0; i<=passwordLength; i++)
+  for (var i=0; i<=passwordLength; i++) {
+      var randomNumber = Math.floor(Math.random() * alphabet.length);
+      password +- alphabet.substring(randomNumber, randomNumber +1);
+  }
+
+  passwordText.value = password;
+
+  console.log(charNum);
   
   //save those confirmations in separate variables
   // store all the values in form of arrays
@@ -53,10 +57,11 @@ function generatePassword() {
   //generate random num for concat array and grab the item
   //push that item in new password array
   // return new password
-// }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 generatePassword();
 
+console.log(generatePassword(passwordText));
