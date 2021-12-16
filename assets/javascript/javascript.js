@@ -1,11 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// characters for password
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "0123456789";
+var special = "!@#$%^&*()?.";
+
+var passwordText = document.querySelector("#password");
+
 // Write password to the #password input
 function writePassword() {
-  // console.log("testing");
 
-  var password = generatePassword();
+//   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -34,11 +40,10 @@ function generatePassword() {
     
   }
 
-  console.log(lowerCaps);
-  console.log(caps);
-  console.log(specialChar);
-  console.log(numOfChar);
-  
+  var passwordLength = numofChar;
+  var password = "";
+
+  for (var i=0; i<=passwordLength; i++)
   
   //save those confirmations in separate variables
   // store all the values in form of arrays
@@ -48,9 +53,10 @@ function generatePassword() {
   //generate random num for concat array and grab the item
   //push that item in new password array
   // return new password
-}
+// }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 generatePassword();
+
