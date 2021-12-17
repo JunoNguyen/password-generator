@@ -9,7 +9,7 @@ number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-space = [];
+password = [];
 
 var choices;
 
@@ -26,7 +26,10 @@ function customPassword() {
   var pickChoices = choices[Math.floor(Math.random() * choices.length)];
   password.push(pickChoices);
   }
-  document.querySelector("#password").value=password;
+  
+  var passwordText = password.join("");
+  password = [];
+  return passwordText;
 };
 
 
@@ -83,7 +86,7 @@ function generatePassword() {
     choices = character.concat(alpha,alpha2);
   };
   
-  var password = "";
+  var password;
   
   customPassword();
 
