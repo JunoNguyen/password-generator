@@ -22,20 +22,22 @@ alpha2 = alpha.map(toUpper);
 var generateBtn = document.querySelector("#generate");
 
 function customPassword() {
+  password = [];
   for (var i = 0; i < charNum; i++) {
   var pickChoices = choices[Math.floor(Math.random() * choices.length)];
   password.push(pickChoices);
   }
+  console.log(charNum);
   
   var passwordText = password.join("");
-  password = [];
+  // password = [];
   return passwordText;
 };
 
 
 function generatePassword() {
   
-  var charNum = prompt("enter the length of password");
+  charNum = prompt("enter the length of password");
   if (!(charNum >= 8 && charNum < 128)) {};
   
   var specialChar = prompt("do you want special characters?");
@@ -55,7 +57,7 @@ function generatePassword() {
   var numbers = prompt("do you want numbers?");
   if (numbers=="yes") {
     var wantNumbers = true;
-  } else if (caps=="no") {
+  } else if (numbers=="no") {
     var wantNumbers = false;
   };
   console.log(wantSpecialChar);
@@ -86,9 +88,9 @@ function generatePassword() {
     choices = character.concat(alpha,alpha2);
   };
   
-  var password;
+  // var password;
   
-  customPassword();
+  var string = customPassword();
 
 
   console.log(password);
@@ -97,7 +99,7 @@ function generatePassword() {
 
 function writePassword() {
   var password = generatePassword();
-
+  
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
